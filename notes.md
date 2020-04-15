@@ -133,8 +133,83 @@ Click on web deployment and give the app a nickname:
 </script>
 
 
+### Create json file
+Since this database system uses json to store data
+Sample user json data: 
+
+{
+  "users" : [ 
+     {"name": "Alex Meraz",
+       "age" : 24,
+       "email" : "ameraz@email.com"
+     },
+     {"name":"Mohammed Rafi",
+       "age" : 21,
+       "email" : "mrafi@email.com"
+     },
+     {"name":"Raja Tamil",
+       "age" : 31,
+       "email" : "rtamil@email.com"
+     },
+     { "name":"Sundar Pichai",
+       "age" : 21,
+       "email" : "spichai@email.com"
+     }]
+}
+
+Open a text editor and paste this data:
+Save as json file with a .json filename extension.
+
+### Choose realtime database:
+Click the Realtime database option:
+Choose Start in test mode option that has this json:
+Get set up quickly by allowing all reads and writes to your database.
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+Get set up quickly by allowing all reads and writes to your database
+Click on the three dots menu and click import data.
+Choose your json file and add it.
+
+### Reading the data from the database
+A had an error that troubled me:
+Uncaught TypeError: firebase.database is not a function at 
+
+If you check the code, you copypasted, there is  a comment:
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+If you read this comment, it says to add any products you need, so in your case, add the line:
 
 
-1302-
+It turns out I had to add realtime db script tag below the first script tag and that sorted it.
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+
+
+https://medium.com/codingurukul/firebase-for-web-firebase-realtime-database-9280a52ced83
+This tutorial ended up helping me in making basic operations in firebase.
+
+var database= firebase.database();
+
+// Basic read operation on our existing data
+database.ref('users').on('value',(snap)=>{
+    var usersData= snap.val()
+    console.log(usersData)
+})
+// End of basic read operation
+You should be able to get a result with the data already in the database.
+
+
+I will use it for the other operations: delete and update.
+
+1302-1501
+
+Article ideas
+firebase database is not a function 1-10k searches
+
+
 
 
