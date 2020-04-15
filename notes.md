@@ -87,4 +87,54 @@ Copy the code that appears
 
 then click proceed to console.
 
+1151-1217
+---------------------------------------------------------------
 ### Setup the development environment:
+
+
+Struggled to look for the link to clone. The basic setup project. The github link provided does not have the files indicate. So I abandoned that tutorial and I am now looking for Articles that have:
+Vanilla javascript and firebase implementation.
+I Have found two articles that I want to look at and try them.
+1. https://medium.com/@rajatamil/learn-to-build-firebase-crud-app-with-javascript-part-1-reading-data-b3f8f8e0d924
+2. https://medium.com/@rajatamil/in-this-firebase-crud-javascript-web-tutorial-you-will-be-learning-how-to-do-create-update-and-c3ca4f4da15d
+These uses realtime db while I my setup has firestore database.
+
+Vanilla Javascript and firebase app.
+Source files: https://github.com/tpkahlon/javascript/tree/master/27A
+Published here: https://angry-mcclintock-c3e2db.netlify.com/
+1233-1258
+------------------------------------------------------------------
+Create a new project:medium-sunday
+Go back to the console home page.
+
+Click on web deployment and give the app a nickname: 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC_-aEzOYrB4AcTRTpJECjcrpLnRS4AmH8",
+    authDomain: "medium-sunday.firebaseapp.com",
+    databaseURL: "https://medium-sunday.firebaseio.com",
+    projectId: "medium-sunday",
+    storageBucket: "medium-sunday.appspot.com",
+    messagingSenderId: "1037577406253",
+    appId: "1:1037577406253:web:8d8c44df2fe203cc6cb5a4",
+    measurementId: "G-V1GDKZ4HDK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+
+
+1302-
+
+
