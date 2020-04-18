@@ -1,0 +1,40 @@
+{"school" :[
+  {
+    "teachers" : [ 
+       {"name": "Alex Meraz",
+         "age" : 24,
+         "email" : "ameraz@email.com"
+       },
+       {"name":"Mohammed Rafi",
+         "age" : 21,
+         "email" : "mrafi@email.com"
+       },
+       {"name":"Raja Tamil",
+         "age" : 31,
+         "email" : "rtamil@email.com"
+       },
+       { "name":"Sundar Pichai",
+         "age" : 21,
+         "email" : "spichai@email.com"
+       }]
+  },
+  {
+    "class-1" : [ 
+       {"name": "Alex Meraz",
+         "age" : 24,
+         "email" : "ameraz@email.com"
+       },
+       {"name":"Mohammed Rafi",
+         "age" : 21,
+         "email" : "mrafi@email.com"
+       },
+       {"name":"Raja Tamil",
+         "age" : 31,
+         "email" : "rtamil@email.com"
+       },
+       { "name":"Sundar Pichai",
+         "age" : 21,
+         "email" : "spichai@email.com"
+       }]
+  }]
+}

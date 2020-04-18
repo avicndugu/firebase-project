@@ -204,12 +204,159 @@ You should be able to get a result with the data already in the database.
 
 
 I will use it for the other operations: delete and update.
+Some reference notes that might be helpful during queries.
+https://www.fullstackfirebase.com/realtime-database/notes
 
 1302-1501
 
 Article ideas
 firebase database is not a function 1-10k searches
+Database:
+https://console.firebase.google.com/u/1/project/medium-sunday/database/medium-sunday/data
+
+
+Learning objective:
+Understand what an algorithm is. 
+Be able to create an algorithm for a simple activity.
+Be able to complete a simple coding activity.
+
+Instruction:
+Think of the instructions you would give somebody so that they can draw a smiley face.
+In technology, the list of steps that you have just made is called an Algorithm!
+
+1. Watch this video https://www.youtube.com/watch?v=Da5TOXCwLSg and respond the question:
+what is an algorithm?
+
+2. Think of something that you do daily. Write you own algorithm(step by step instructions) of how it is done. Examples: washing hands, drawing smiley face, jumping jacks, make a firework show.
+
+Activity:
+1. Create an algorithm to draw a square or rectangle in turtle academy https://turtleacademy.com/lessons/1 using the instructions found 
+You can move the turtle with simple commands.
+To move the turtle foward 50 steps use: fd 50
+To turn the turtle a quarter to the right, use: rt 90
+To turn the turtle a quarter to the left, use: lt 90
+
+Write down the algorithm you used to draw a square or rectangle.
+
+Resources (Video links, website, workbook page number):
+Video: https://www.youtube.com/watch?v=Da5TOXCwLSg
+Activity area: https://turtleacademy.com/lessons/1
+Drawing shapes algorithms worksheet: 
+
+Year 1:
+Algorithm worksheet: https://code.org/curriculum/course2/2/Assessment2-EverydayAlgorithms.pdf
+https://code.org/curriculum/course2/2/Activity2-RealLifeAlgorithms.pdf
+
+Teacher resources
+https://www.remc.org/mitechkids/2nd-grade/algorithm/
+Code club has new lessons on html css, 3d modelling, sonic pi.
 
 
 
 
+
+
+
+Laptop shopping
+HP EliteBook 840 G3 Laptop 14" display
+https://nairobicomputershop.co.ke/catalogue/hp-elitebook-840-g3-laptop-14-fhd-display-intel-core-i5-6300u-24ghz-256gb-ssd-8gb-ddr4-ram-webcam-wifi-windows-10-pro_250/
+
+Lenovo ThinkPad T450 14in Laptop, Core i5 5300U 2.3GHz 4GB Ram 500GB HDD Windows 10 Pro 64bit Webcam
+https://nairobicomputershop.co.ke/catalogue/lenovo-thinkpad-t450-14in-laptop-core-i5-5300u-23ghz-4gb-ram-500gb-hdd-windows-10-pro-64bit-webcam_252/
+
+
+Minimum Laptop Requirements
+Type: PC
+Processor: Intel Core i5 or i7 or AMD equivalent
+Display: 13” or larger
+Memory: 8GB or higher for PC
+Hard Drive: 256GB SSD or higher
+I/O ports: Two USB 3.0 ports
+Video out: HDMI or DisplayPort
+Wireless: AC preferred, N minimum
+OS: Windows 10 (preferred) for PC
+Warranty: 3 years’ minimum
+
+
+Slax OS 
+Under 300 mb
+Debian
+RAM: 128 MB (offline usage) / 512 MB (for web browser usage)
+CPU: i686 or newer
+
+
+https://nairobicomputershop.co.ke/catalogue/hp-elitebook-8470p-laptop-intel-quad-core-i7-3740qm-27ghz-windows-10-pro-64-bit-4gb-ddr3-ram-500gb-hdd_260/
+
+For the average consumer, I focus processor selection on three things: cores, cycles, and cost.
+
+4 cores better thatn two.
+
+While often limited by other reasons, a 3.0Ghz processor is roughly twice as fast as a 1.5Ghz processor.
+
+
+
+
+Inserting data into firebase
+
+There are 3 methods
+  - Push()
+  - Set() and
+  - Update()
+
+
+
+Write the function that will receive the form data and push it to the database:
+// Function to write the data to the database
+function writeUserData(age, email, name) {
+  firebase
+    .database()
+    .ref('users/')
+    .push({
+      name: name,
+      email: email,
+      age: age
+    });
+}
+
+Test the function with raw data
+// test the function to write the data to the database with raw data without the form
+writeUserData(33, 'larawara@gmail.com', 'Lara');
+
+Add error handler to the push function so that you can know if your function call was successful.
+
+.push({
+        name: name,
+        email: email,
+        age: age
+      },
+      function(error) {
+        if (error) {
+          console.log("Data could not be saved." + error);
+        } else {
+          console.log("Data saved successfully.");
+        }
+    })
+
+
+
+
+EDITING cCURRENT USERS
+set() method will overwrite everything in that specific path and all other keys will be deleted. It’s kind of dangerous because you may lose data without knowing.
+
+
+
+HTML form to add the data: 
+<!-- add user module -->
+<section id="add-user-module" >
+  <button id="open-add-user-form-btn">+</button>
+  <form>
+    <h2>Add User</h2>
+    name:<br>
+    <input type='text' data-key='name' class='user-input'><br>
+    age:<br>
+    <input type='text' data-key='age' class='user-input'><br>
+    email:<br>
+    <input type='text' data-key='email' class='user-input'><br>
+    <button type='button' id="add-user-btn">add user</button>
+ </form>
+</section>

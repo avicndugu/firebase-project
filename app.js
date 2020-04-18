@@ -16,13 +16,7 @@ firebase.analytics();
 var database= firebase.database();
 
 ////////////////////////////////////////////////////
-// Start of reading firebase data stored
-// // Working: Basic read operation on our existing data
-// firebase.database().ref('users').on('value',(snap)=>{
-//     console.log(snap.val());
-// });
-
-// // Basic read operation on our existing data
+///// Basic read operation on our existing data
 function readDatabase(){
   firebase
     .database()
@@ -34,7 +28,7 @@ function readDatabase(){
 }
 
 readDatabase();
-// // End of basic read operation
+///// End of basic read operation
 
 // // Adding the data to the DOM tree
 const usersList = document.getElementById("users-list");
@@ -45,7 +39,7 @@ function listIt (users){
     // console.log(user); // key
     // console.log(users[user]); // value
     var li = document.createElement('li');
-    li.textContent=`Age: ${users[user].age} Email: ${users[user].email} Name: ${users[user].name}`;
+    li.textContent=`Age: ${users[user].age} Email: ${users[user].email} Name: ${user}`;
     usersList.appendChild(li);
     function searchName(searchTerm){
       if (users[user].name==searchTerm){
@@ -57,8 +51,6 @@ function listIt (users){
   searchName("Anita");
   });
 }
-
-
 
 // // End of adding the data to the DOM tree
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,33 +65,45 @@ function updateDatabase(age, email, username, name){
     });
 }
 updateDatabase(39, 'weewie@gmail.com', 'Lalav  Elein', 'Kimondi')
-// updateDatabase(36, 'anitawew@gmail.com', 'Anita')
 
 ////////////////////////////////////////////////////
 
 // Add new data to the database code
 /////////////////////////////////////////////////////
 // Working: Function to write the data to the database
-function writeUserData(age, email, name) {
+function writeUserData(age, email, username, name) {
   firebase
     .database()
     .ref('users')
-    .push({
+    .child(username)
+    .set({
         name: name,
         email: email,
         age: age
       },
       function(error) {
         if (error) {
-          // console.log("Data could not be saved." + error);
+          console.log("Data could not be saved." + error);
         } else {
-          // console.log("Data saved successfully.");
+          console.log("Data saved successfully.");
         }
     })
+    // .push({
+    //     name: name,
+    //     email: email,
+    //     age: age
+    //   },
+    //   function(error) {
+    //     if (error) {
+    //       console.log("Data could not be saved." + error);
+    //     } else {
+    //       console.log("Data saved successfully.");
+    //     }
+    // })
 }
 
 // // test the function to write the data to the database with raw data without the form
-writeUserData(31, 'anitawew@gmail.com', 'Anita');
+writeUserData(36, 'anitaweupe@gmail.com', 'Anita Nderu', 'Anita');
 //////////////////////////////////////////////////////////////////////////////////
 
 
